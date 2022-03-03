@@ -36,31 +36,38 @@
             this.label2 = new System.Windows.Forms.Label();
             this.age = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.yellowFingers = new System.Windows.Forms.CheckBox();
-            this.smoking = new System.Windows.Forms.CheckBox();
-            this.anxiety = new System.Windows.Forms.CheckBox();
-            this.peerPressure = new System.Windows.Forms.CheckBox();
-            this.chronicDisease = new System.Windows.Forms.CheckBox();
-            this.fatigue = new System.Windows.Forms.CheckBox();
-            this.allergy = new System.Windows.Forms.CheckBox();
-            this.wheezing = new System.Windows.Forms.CheckBox();
-            this.alcohol = new System.Windows.Forms.CheckBox();
-            this.coughing = new System.Windows.Forms.CheckBox();
-            this.shortnessOfBreath = new System.Windows.Forms.CheckBox();
-            this.swallowingDifficulty = new System.Windows.Forms.CheckBox();
             this.chestPain = new System.Windows.Forms.CheckBox();
+            this.swallowingDifficulty = new System.Windows.Forms.CheckBox();
+            this.shortnessOfBreath = new System.Windows.Forms.CheckBox();
+            this.coughing = new System.Windows.Forms.CheckBox();
+            this.alcohol = new System.Windows.Forms.CheckBox();
+            this.wheezing = new System.Windows.Forms.CheckBox();
+            this.allergy = new System.Windows.Forms.CheckBox();
+            this.fatigue = new System.Windows.Forms.CheckBox();
+            this.chronicDisease = new System.Windows.Forms.CheckBox();
+            this.peerPressure = new System.Windows.Forms.CheckBox();
+            this.anxiety = new System.Windows.Forms.CheckBox();
+            this.smoking = new System.Windows.Forms.CheckBox();
+            this.yellowFingers = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.lungCancerProbability = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.iterations = new System.Windows.Forms.NumericUpDown();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.age)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iterations)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Location = new System.Drawing.Point(106, 41);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -71,7 +78,7 @@
             // trainingStatus
             // 
             this.trainingStatus.AutoSize = true;
-            this.trainingStatus.Location = new System.Drawing.Point(93, 17);
+            this.trainingStatus.Location = new System.Drawing.Point(187, 46);
             this.trainingStatus.Name = "trainingStatus";
             this.trainingStatus.Size = new System.Drawing.Size(35, 13);
             this.trainingStatus.TabIndex = 1;
@@ -148,144 +155,12 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.sMale);
             this.groupBox1.Controls.Add(this.sFemale);
-            this.groupBox1.Location = new System.Drawing.Point(12, 41);
+            this.groupBox1.Location = new System.Drawing.Point(12, 70);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(330, 213);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Predictors";
-            // 
-            // yellowFingers
-            // 
-            this.yellowFingers.AutoSize = true;
-            this.yellowFingers.Location = new System.Drawing.Point(9, 74);
-            this.yellowFingers.Name = "yellowFingers";
-            this.yellowFingers.Size = new System.Drawing.Size(91, 17);
-            this.yellowFingers.TabIndex = 10;
-            this.yellowFingers.Text = "Yellow fingers";
-            this.yellowFingers.UseVisualStyleBackColor = true;
-            this.yellowFingers.CheckedChanged += new System.EventHandler(this.yellowFingers_CheckedChanged);
-            // 
-            // smoking
-            // 
-            this.smoking.AutoSize = true;
-            this.smoking.Location = new System.Drawing.Point(9, 51);
-            this.smoking.Name = "smoking";
-            this.smoking.Size = new System.Drawing.Size(67, 17);
-            this.smoking.TabIndex = 11;
-            this.smoking.Text = "Smoking";
-            this.smoking.UseVisualStyleBackColor = true;
-            this.smoking.CheckedChanged += new System.EventHandler(this.smoking_CheckedChanged);
-            // 
-            // anxiety
-            // 
-            this.anxiety.AutoSize = true;
-            this.anxiety.Location = new System.Drawing.Point(9, 97);
-            this.anxiety.Name = "anxiety";
-            this.anxiety.Size = new System.Drawing.Size(60, 17);
-            this.anxiety.TabIndex = 12;
-            this.anxiety.Text = "Anxiety";
-            this.anxiety.UseVisualStyleBackColor = true;
-            this.anxiety.CheckedChanged += new System.EventHandler(this.anxiety_CheckedChanged);
-            // 
-            // peerPressure
-            // 
-            this.peerPressure.AutoSize = true;
-            this.peerPressure.Location = new System.Drawing.Point(9, 120);
-            this.peerPressure.Name = "peerPressure";
-            this.peerPressure.Size = new System.Drawing.Size(91, 17);
-            this.peerPressure.TabIndex = 13;
-            this.peerPressure.Text = "Peer pressure";
-            this.peerPressure.UseVisualStyleBackColor = true;
-            this.peerPressure.CheckedChanged += new System.EventHandler(this.peerPressure_CheckedChanged);
-            // 
-            // chronicDisease
-            // 
-            this.chronicDisease.AutoSize = true;
-            this.chronicDisease.Location = new System.Drawing.Point(9, 143);
-            this.chronicDisease.Name = "chronicDisease";
-            this.chronicDisease.Size = new System.Drawing.Size(101, 17);
-            this.chronicDisease.TabIndex = 14;
-            this.chronicDisease.Text = "Chronic disease";
-            this.chronicDisease.UseVisualStyleBackColor = true;
-            this.chronicDisease.CheckedChanged += new System.EventHandler(this.chronicDisease_CheckedChanged);
-            // 
-            // fatigue
-            // 
-            this.fatigue.AutoSize = true;
-            this.fatigue.Location = new System.Drawing.Point(9, 166);
-            this.fatigue.Name = "fatigue";
-            this.fatigue.Size = new System.Drawing.Size(61, 17);
-            this.fatigue.TabIndex = 15;
-            this.fatigue.Text = "Fatigue";
-            this.fatigue.UseVisualStyleBackColor = true;
-            this.fatigue.CheckedChanged += new System.EventHandler(this.fatigue_CheckedChanged);
-            // 
-            // allergy
-            // 
-            this.allergy.AutoSize = true;
-            this.allergy.Location = new System.Drawing.Point(9, 189);
-            this.allergy.Name = "allergy";
-            this.allergy.Size = new System.Drawing.Size(57, 17);
-            this.allergy.TabIndex = 16;
-            this.allergy.Text = "Allergy";
-            this.allergy.UseVisualStyleBackColor = true;
-            this.allergy.CheckedChanged += new System.EventHandler(this.allergy_CheckedChanged);
-            // 
-            // wheezing
-            // 
-            this.wheezing.AutoSize = true;
-            this.wheezing.Location = new System.Drawing.Point(174, 51);
-            this.wheezing.Name = "wheezing";
-            this.wheezing.Size = new System.Drawing.Size(74, 17);
-            this.wheezing.TabIndex = 17;
-            this.wheezing.Text = "Wheezing";
-            this.wheezing.UseVisualStyleBackColor = true;
-            this.wheezing.CheckedChanged += new System.EventHandler(this.wheezing_CheckedChanged);
-            // 
-            // alcohol
-            // 
-            this.alcohol.AutoSize = true;
-            this.alcohol.Location = new System.Drawing.Point(174, 74);
-            this.alcohol.Name = "alcohol";
-            this.alcohol.Size = new System.Drawing.Size(61, 17);
-            this.alcohol.TabIndex = 18;
-            this.alcohol.Text = "Alcohol";
-            this.alcohol.UseVisualStyleBackColor = true;
-            this.alcohol.CheckedChanged += new System.EventHandler(this.alcohol_CheckedChanged);
-            // 
-            // coughing
-            // 
-            this.coughing.AutoSize = true;
-            this.coughing.Location = new System.Drawing.Point(174, 97);
-            this.coughing.Name = "coughing";
-            this.coughing.Size = new System.Drawing.Size(71, 17);
-            this.coughing.TabIndex = 19;
-            this.coughing.Text = "Coughing";
-            this.coughing.UseVisualStyleBackColor = true;
-            this.coughing.CheckedChanged += new System.EventHandler(this.coughing_CheckedChanged);
-            // 
-            // shortnessOfBreath
-            // 
-            this.shortnessOfBreath.AutoSize = true;
-            this.shortnessOfBreath.Location = new System.Drawing.Point(174, 120);
-            this.shortnessOfBreath.Name = "shortnessOfBreath";
-            this.shortnessOfBreath.Size = new System.Drawing.Size(118, 17);
-            this.shortnessOfBreath.TabIndex = 20;
-            this.shortnessOfBreath.Text = "Shortness of breath";
-            this.shortnessOfBreath.UseVisualStyleBackColor = true;
-            this.shortnessOfBreath.CheckedChanged += new System.EventHandler(this.shortnessOfBreath_CheckedChanged);
-            // 
-            // swallowingDifficulty
-            // 
-            this.swallowingDifficulty.AutoSize = true;
-            this.swallowingDifficulty.Location = new System.Drawing.Point(174, 143);
-            this.swallowingDifficulty.Name = "swallowingDifficulty";
-            this.swallowingDifficulty.Size = new System.Drawing.Size(120, 17);
-            this.swallowingDifficulty.TabIndex = 21;
-            this.swallowingDifficulty.Text = "Swallowing difficulty";
-            this.swallowingDifficulty.UseVisualStyleBackColor = true;
-            this.swallowingDifficulty.CheckedChanged += new System.EventHandler(this.swallowingDifficulty_CheckedChanged);
             // 
             // chestPain
             // 
@@ -298,26 +173,159 @@
             this.chestPain.UseVisualStyleBackColor = true;
             this.chestPain.CheckedChanged += new System.EventHandler(this.chestPain_CheckedChanged);
             // 
+            // swallowingDifficulty
+            // 
+            this.swallowingDifficulty.AutoSize = true;
+            this.swallowingDifficulty.Location = new System.Drawing.Point(174, 143);
+            this.swallowingDifficulty.Name = "swallowingDifficulty";
+            this.swallowingDifficulty.Size = new System.Drawing.Size(120, 17);
+            this.swallowingDifficulty.TabIndex = 21;
+            this.swallowingDifficulty.Text = "Swallowing difficulty";
+            this.swallowingDifficulty.UseVisualStyleBackColor = true;
+            this.swallowingDifficulty.CheckedChanged += new System.EventHandler(this.swallowingDifficulty_CheckedChanged);
+            // 
+            // shortnessOfBreath
+            // 
+            this.shortnessOfBreath.AutoSize = true;
+            this.shortnessOfBreath.Location = new System.Drawing.Point(174, 120);
+            this.shortnessOfBreath.Name = "shortnessOfBreath";
+            this.shortnessOfBreath.Size = new System.Drawing.Size(118, 17);
+            this.shortnessOfBreath.TabIndex = 20;
+            this.shortnessOfBreath.Text = "Shortness of breath";
+            this.shortnessOfBreath.UseVisualStyleBackColor = true;
+            this.shortnessOfBreath.CheckedChanged += new System.EventHandler(this.shortnessOfBreath_CheckedChanged);
+            // 
+            // coughing
+            // 
+            this.coughing.AutoSize = true;
+            this.coughing.Location = new System.Drawing.Point(174, 97);
+            this.coughing.Name = "coughing";
+            this.coughing.Size = new System.Drawing.Size(71, 17);
+            this.coughing.TabIndex = 19;
+            this.coughing.Text = "Coughing";
+            this.coughing.UseVisualStyleBackColor = true;
+            this.coughing.CheckedChanged += new System.EventHandler(this.coughing_CheckedChanged);
+            // 
+            // alcohol
+            // 
+            this.alcohol.AutoSize = true;
+            this.alcohol.Location = new System.Drawing.Point(174, 74);
+            this.alcohol.Name = "alcohol";
+            this.alcohol.Size = new System.Drawing.Size(61, 17);
+            this.alcohol.TabIndex = 18;
+            this.alcohol.Text = "Alcohol";
+            this.alcohol.UseVisualStyleBackColor = true;
+            this.alcohol.CheckedChanged += new System.EventHandler(this.alcohol_CheckedChanged);
+            // 
+            // wheezing
+            // 
+            this.wheezing.AutoSize = true;
+            this.wheezing.Location = new System.Drawing.Point(174, 51);
+            this.wheezing.Name = "wheezing";
+            this.wheezing.Size = new System.Drawing.Size(74, 17);
+            this.wheezing.TabIndex = 17;
+            this.wheezing.Text = "Wheezing";
+            this.wheezing.UseVisualStyleBackColor = true;
+            this.wheezing.CheckedChanged += new System.EventHandler(this.wheezing_CheckedChanged);
+            // 
+            // allergy
+            // 
+            this.allergy.AutoSize = true;
+            this.allergy.Location = new System.Drawing.Point(9, 189);
+            this.allergy.Name = "allergy";
+            this.allergy.Size = new System.Drawing.Size(57, 17);
+            this.allergy.TabIndex = 16;
+            this.allergy.Text = "Allergy";
+            this.allergy.UseVisualStyleBackColor = true;
+            this.allergy.CheckedChanged += new System.EventHandler(this.allergy_CheckedChanged);
+            // 
+            // fatigue
+            // 
+            this.fatigue.AutoSize = true;
+            this.fatigue.Location = new System.Drawing.Point(9, 166);
+            this.fatigue.Name = "fatigue";
+            this.fatigue.Size = new System.Drawing.Size(61, 17);
+            this.fatigue.TabIndex = 15;
+            this.fatigue.Text = "Fatigue";
+            this.fatigue.UseVisualStyleBackColor = true;
+            this.fatigue.CheckedChanged += new System.EventHandler(this.fatigue_CheckedChanged);
+            // 
+            // chronicDisease
+            // 
+            this.chronicDisease.AutoSize = true;
+            this.chronicDisease.Location = new System.Drawing.Point(9, 143);
+            this.chronicDisease.Name = "chronicDisease";
+            this.chronicDisease.Size = new System.Drawing.Size(101, 17);
+            this.chronicDisease.TabIndex = 14;
+            this.chronicDisease.Text = "Chronic disease";
+            this.chronicDisease.UseVisualStyleBackColor = true;
+            this.chronicDisease.CheckedChanged += new System.EventHandler(this.chronicDisease_CheckedChanged);
+            // 
+            // peerPressure
+            // 
+            this.peerPressure.AutoSize = true;
+            this.peerPressure.Location = new System.Drawing.Point(9, 120);
+            this.peerPressure.Name = "peerPressure";
+            this.peerPressure.Size = new System.Drawing.Size(91, 17);
+            this.peerPressure.TabIndex = 13;
+            this.peerPressure.Text = "Peer pressure";
+            this.peerPressure.UseVisualStyleBackColor = true;
+            this.peerPressure.CheckedChanged += new System.EventHandler(this.peerPressure_CheckedChanged);
+            // 
+            // anxiety
+            // 
+            this.anxiety.AutoSize = true;
+            this.anxiety.Location = new System.Drawing.Point(9, 97);
+            this.anxiety.Name = "anxiety";
+            this.anxiety.Size = new System.Drawing.Size(60, 17);
+            this.anxiety.TabIndex = 12;
+            this.anxiety.Text = "Anxiety";
+            this.anxiety.UseVisualStyleBackColor = true;
+            this.anxiety.CheckedChanged += new System.EventHandler(this.anxiety_CheckedChanged);
+            // 
+            // smoking
+            // 
+            this.smoking.AutoSize = true;
+            this.smoking.Location = new System.Drawing.Point(9, 51);
+            this.smoking.Name = "smoking";
+            this.smoking.Size = new System.Drawing.Size(67, 17);
+            this.smoking.TabIndex = 11;
+            this.smoking.Text = "Smoking";
+            this.smoking.UseVisualStyleBackColor = true;
+            this.smoking.CheckedChanged += new System.EventHandler(this.smoking_CheckedChanged);
+            // 
+            // yellowFingers
+            // 
+            this.yellowFingers.AutoSize = true;
+            this.yellowFingers.Location = new System.Drawing.Point(9, 74);
+            this.yellowFingers.Name = "yellowFingers";
+            this.yellowFingers.Size = new System.Drawing.Size(91, 17);
+            this.yellowFingers.TabIndex = 10;
+            this.yellowFingers.Text = "Yellow fingers";
+            this.yellowFingers.UseVisualStyleBackColor = true;
+            this.yellowFingers.CheckedChanged += new System.EventHandler(this.yellowFingers_CheckedChanged);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lungCancerProbability);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Location = new System.Drawing.Point(12, 260);
+            this.groupBox2.Location = new System.Drawing.Point(12, 289);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(330, 54);
+            this.groupBox2.Size = new System.Drawing.Size(330, 52);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Prediction";
             // 
-            // button2
+            // lungCancerProbability
             // 
-            this.button2.Location = new System.Drawing.Point(6, 19);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Predict";
-            this.button2.UseVisualStyleBackColor = true;
+            this.lungCancerProbability.AutoSize = true;
+            this.lungCancerProbability.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lungCancerProbability.Location = new System.Drawing.Point(213, 24);
+            this.lungCancerProbability.Name = "lungCancerProbability";
+            this.lungCancerProbability.Size = new System.Drawing.Size(65, 13);
+            this.lungCancerProbability.TabIndex = 2;
+            this.lungCancerProbability.Text = "probability";
             // 
             // label3
             // 
@@ -328,31 +336,101 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Lung cancer probability:";
             // 
-            // lungCancerProbability
+            // button2
             // 
-            this.lungCancerProbability.AutoSize = true;
-            this.lungCancerProbability.Location = new System.Drawing.Point(213, 24);
-            this.lungCancerProbability.Name = "lungCancerProbability";
-            this.lungCancerProbability.Size = new System.Drawing.Size(54, 13);
-            this.lungCancerProbability.TabIndex = 2;
-            this.lungCancerProbability.Text = "probability";
+            this.button2.Location = new System.Drawing.Point(6, 19);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Predict";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // iterations
+            // 
+            this.iterations.Location = new System.Drawing.Point(12, 42);
+            this.iterations.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.iterations.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.iterations.Name = "iterations";
+            this.iterations.Size = new System.Drawing.Size(88, 20);
+            this.iterations.TabIndex = 10;
+            this.iterations.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(12, 12);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "Load";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(93, 12);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "Save";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.Filter = "JSON|*.json;";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "JSON|*.json;";
+            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(174, 12);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 13;
+            this.button5.Text = "Reset";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 326);
+            this.ClientSize = new System.Drawing.Size(354, 353);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.iterations);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.trainingStatus);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Lung Cancer Predictor";
             ((System.ComponentModel.ISupportInitialize)(this.age)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iterations)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -385,6 +463,12 @@
         private System.Windows.Forms.Label lungCancerProbability;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.NumericUpDown iterations;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button button5;
     }
 }
 
