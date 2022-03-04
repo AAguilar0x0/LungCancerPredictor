@@ -59,6 +59,9 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.button5 = new System.Windows.Forms.Button();
+            this.learningRate = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.age)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -67,10 +70,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(106, 41);
+            this.button1.Location = new System.Drawing.Point(12, 65);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
+            this.button1.TabIndex = 6;
             this.button1.Text = "Train";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -78,7 +81,7 @@
             // trainingStatus
             // 
             this.trainingStatus.AutoSize = true;
-            this.trainingStatus.Location = new System.Drawing.Point(187, 46);
+            this.trainingStatus.Location = new System.Drawing.Point(93, 70);
             this.trainingStatus.Name = "trainingStatus";
             this.trainingStatus.Size = new System.Drawing.Size(35, 13);
             this.trainingStatus.TabIndex = 1;
@@ -99,7 +102,7 @@
             this.sMale.Location = new System.Drawing.Point(40, 28);
             this.sMale.Name = "sMale";
             this.sMale.Size = new System.Drawing.Size(48, 17);
-            this.sMale.TabIndex = 4;
+            this.sMale.TabIndex = 7;
             this.sMale.TabStop = true;
             this.sMale.Text = "Male";
             this.sMale.UseVisualStyleBackColor = true;
@@ -112,7 +115,7 @@
             this.sFemale.Location = new System.Drawing.Point(94, 28);
             this.sFemale.Name = "sFemale";
             this.sFemale.Size = new System.Drawing.Size(59, 17);
-            this.sFemale.TabIndex = 5;
+            this.sFemale.TabIndex = 8;
             this.sFemale.TabStop = true;
             this.sFemale.Text = "Female";
             this.sFemale.UseVisualStyleBackColor = true;
@@ -132,7 +135,7 @@
             this.age.Location = new System.Drawing.Point(206, 25);
             this.age.Name = "age";
             this.age.Size = new System.Drawing.Size(112, 20);
-            this.age.TabIndex = 7;
+            this.age.TabIndex = 9;
             this.age.ValueChanged += new System.EventHandler(this.age_ValueChanged);
             // 
             // groupBox1
@@ -155,7 +158,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.sMale);
             this.groupBox1.Controls.Add(this.sFemale);
-            this.groupBox1.Location = new System.Drawing.Point(12, 70);
+            this.groupBox1.Location = new System.Drawing.Point(12, 94);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(330, 213);
             this.groupBox1.TabIndex = 8;
@@ -289,7 +292,7 @@
             this.smoking.Location = new System.Drawing.Point(9, 51);
             this.smoking.Name = "smoking";
             this.smoking.Size = new System.Drawing.Size(67, 17);
-            this.smoking.TabIndex = 11;
+            this.smoking.TabIndex = 10;
             this.smoking.Text = "Smoking";
             this.smoking.UseVisualStyleBackColor = true;
             this.smoking.CheckedChanged += new System.EventHandler(this.smoking_CheckedChanged);
@@ -300,7 +303,7 @@
             this.yellowFingers.Location = new System.Drawing.Point(9, 74);
             this.yellowFingers.Name = "yellowFingers";
             this.yellowFingers.Size = new System.Drawing.Size(91, 17);
-            this.yellowFingers.TabIndex = 10;
+            this.yellowFingers.TabIndex = 11;
             this.yellowFingers.Text = "Yellow fingers";
             this.yellowFingers.UseVisualStyleBackColor = true;
             this.yellowFingers.CheckedChanged += new System.EventHandler(this.yellowFingers_CheckedChanged);
@@ -310,9 +313,9 @@
             this.groupBox2.Controls.Add(this.lungCancerProbability);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Location = new System.Drawing.Point(12, 289);
+            this.groupBox2.Location = new System.Drawing.Point(12, 313);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(330, 52);
+            this.groupBox2.Size = new System.Drawing.Size(330, 54);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Prediction";
@@ -341,14 +344,14 @@
             this.button2.Location = new System.Drawing.Point(6, 19);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 0;
+            this.button2.TabIndex = 23;
             this.button2.Text = "Predict";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // iterations
             // 
-            this.iterations.Location = new System.Drawing.Point(12, 42);
+            this.iterations.Location = new System.Drawing.Point(228, 41);
             this.iterations.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -360,10 +363,10 @@
             0,
             0});
             this.iterations.Name = "iterations";
-            this.iterations.Size = new System.Drawing.Size(88, 20);
-            this.iterations.TabIndex = 10;
+            this.iterations.Size = new System.Drawing.Size(102, 20);
+            this.iterations.TabIndex = 5;
             this.iterations.Value = new decimal(new int[] {
-            1,
+            10000,
             0,
             0,
             0});
@@ -373,7 +376,7 @@
             this.button3.Location = new System.Drawing.Point(12, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 11;
+            this.button3.TabIndex = 1;
             this.button3.Text = "Load";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -383,7 +386,7 @@
             this.button4.Location = new System.Drawing.Point(93, 12);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 12;
+            this.button4.TabIndex = 2;
             this.button4.Text = "Save";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
@@ -403,16 +406,44 @@
             this.button5.Location = new System.Drawing.Point(174, 12);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 13;
+            this.button5.TabIndex = 3;
             this.button5.Text = "Reset";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // learningRate
+            // 
+            this.learningRate.Location = new System.Drawing.Point(92, 40);
+            this.learningRate.Name = "learningRate";
+            this.learningRate.Size = new System.Drawing.Size(76, 20);
+            this.learningRate.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(174, 43);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 13);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Iteration:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(9, 43);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(77, 13);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Learning Rate:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 353);
+            this.ClientSize = new System.Drawing.Size(354, 379);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.learningRate);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -424,6 +455,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lung Cancer Predictor";
             ((System.ComponentModel.ISupportInitialize)(this.age)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -469,6 +501,9 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox learningRate;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
 

@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using MLM;
+using MathNet.Numerics.LinearAlgebra;
 using CsvHelper;
 using System.IO;
 using System.Globalization;
@@ -16,19 +13,75 @@ namespace LungCancerPredictor
     public partial class Form1 : Form
     {
         ANN lungCancerModel;
-        Matrix x;
-        List<Matrix> X;
-        List<Matrix> Y;
+        Matrix<double> x;
+        List<Matrix<double>> X;
+        List<Matrix<double>> Y;
+        readonly int[] defaultInnerLayers = { 8 };
+        const double defaultAlpha = 0.03;
+        const int defaultAge = 10;
 
         public Form1()
         {
             InitializeComponent();
-            lungCancerModel = new ANN(15, new int[] { 8 }, 1, "Lung Cancer Model");
-            x = new Matrix(1, 15, false, -1);
-            X = new List<Matrix>();
-            Y = new List<Matrix>();
+            lungCancerModel = new ANN(15, defaultInnerLayers, 1, "Lung Cancer Model");
+            learningRate.Text = defaultAlpha.ToString();
+            x = Matrix<double>.Build.Dense(1, 15, -1);
+            X = new List<Matrix<double>>();
+            Y = new List<Matrix<double>>();
             trainingStatus.Text = "";
             lungCancerProbability.Text = "";
+            openFileDialog1.InitialDirectory =
+                saveFileDialog1.InitialDirectory =
+                Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @".\models"));
+            age.Value = defaultAge;
+            x[0, 1] = defaultAge;
+            try
+            {
+                using (var reader = new StreamReader("./datasets/train.csv"))
+                {
+                    using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                    {
+                        csv.Read();
+                        csv.ReadHeader();
+                        while (csv.Read())
+                        {
+                            X.Add(Matrix<double>.Build.DenseOfArray(new double[,] { {
+                                csv.GetField<string>("GENDER") == "M" ? 1 : -1,
+                                csv.GetField<double>("AGE"),
+                                csv.GetField<double>("SMOKING") == 2 ? 1 : -1,
+                                csv.GetField<double>("YELLOW_FINGERS") == 2 ? 1 : -1,
+                                csv.GetField<double>("ANXIETY") == 2 ? 1 : -1,
+                                csv.GetField<double>("PEER_PRESSURE") == 2 ? 1 : -1,
+                                csv.GetField<double>("CHRONIC DISEASE") == 2 ? 1 : -1,
+                                csv.GetField<double>("FATIGUE") == 2 ? 1 : -1,
+                                csv.GetField<double>("ALLERGY") == 2 ? 1 : -1,
+                                csv.GetField<double>("WHEEZING") == 2 ? 1 : -1,
+                                csv.GetField<double>("ALCOHOL CONSUMING") == 2 ? 1 : -1,
+                                csv.GetField<double>("COUGHING") == 2 ? 1 : -1,
+                                csv.GetField<double>("SHORTNESS OF BREATH") == 2 ? 1 : -1,
+                                csv.GetField<double>("SWALLOWING DIFFICULTY") == 2 ? 1 : -1,
+                                csv.GetField<double>("CHEST PAIN") == 2 ? 1 : -1,
+                            } }));
+                            Y.Add(Matrix<double>.Build.DenseOfArray(new double[,] { {
+                                csv.GetField<string>("LUNG_CANCER") == "YES" ? 1 : 0
+                            } }));
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                button1.Enabled = false;
+                MessageBox.Show(
+                    "Missing \"train.csv\" in \"datasets\" folder.\n" +
+                    "To enable the training capability,\n" +
+                    "please provide the missing file in the specified folder.\n" +
+                    "Then restart the program afterwards.",
+                    "Warning",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation
+                    );
+            }
         }
 
         private void sMale_CheckedChanged(object sender, EventArgs e)
@@ -113,48 +166,29 @@ namespace LungCancerPredictor
 
         private void button1_Click(object sender, EventArgs e)
         {
-            trainingStatus.Text = "Training...";
-            trainingStatus.Refresh();
-            if (X.Count == 0 && Y.Count == 0)
-                using (var reader = new StreamReader("./lung_cancer_data.csv"))
-                {
-                    using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-                    {
-                        csv.Read();
-                        csv.ReadHeader();
-                        while (csv.Read())
-                        {
-                            X.Add(new Matrix(new double[,] { {
-                                csv.GetField<string>("GENDER") == "M" ? 1 : -1,
-                                csv.GetField<double>("AGE"),
-                                csv.GetField<double>("SMOKING") == 2 ? 1 : -1,
-                                csv.GetField<double>("YELLOW_FINGERS") == 2 ? 1 : -1,
-                                csv.GetField<double>("ANXIETY") == 2 ? 1 : -1,
-                                csv.GetField<double>("PEER_PRESSURE") == 2 ? 1 : -1,
-                                csv.GetField<double>("CHRONIC DISEASE") == 2 ? 1 : -1,
-                                csv.GetField<double>("FATIGUE") == 2 ? 1 : -1,
-                                csv.GetField<double>("ALLERGY") == 2 ? 1 : -1,
-                                csv.GetField<double>("WHEEZING") == 2 ? 1 : -1,
-                                csv.GetField<double>("ALCOHOL CONSUMING") == 2 ? 1 : -1,
-                                csv.GetField<double>("COUGHING") == 2 ? 1 : -1,
-                                csv.GetField<double>("SHORTNESS OF BREATH") == 2 ? 1 : -1,
-                                csv.GetField<double>("SWALLOWING DIFFICULTY") == 2 ? 1 : -1,
-                                csv.GetField<double>("CHEST PAIN") == 2 ? 1 : -1,
-                            } }));
-                            Y.Add(new Matrix(new double[,] { {
-                                csv.GetField<string>("LUNG_CANCER") == "YES" ? 1 : 0
-                            } }));
-                        }
-                    }
-                }
-            lungCancerModel.Train(X, Y, (int)iterations.Value, 0.01);
-            trainingStatus.Text = "Trained";
-            trainingStatus.Refresh();
+            try
+            {
+                double alpha = Convert.ToDouble(learningRate.Text);
+                trainingStatus.Text = "Training...";
+                trainingStatus.Refresh();
+                lungCancerModel.Train(X, Y, (int)iterations.Value, alpha);
+                trainingStatus.Text = "Trained";
+                trainingStatus.Refresh();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(
+                    "Invalid learning rate.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Matrix H = lungCancerModel.Infer(x);
+            Matrix<double> H = lungCancerModel.Infer(x);
             double max = H[0, 0];
             lungCancerProbability.Text = (max * 100).ToString("#.##") + "%";
         }
@@ -181,7 +215,7 @@ namespace LungCancerPredictor
 
         private void button5_Click(object sender, EventArgs e)
         {
-            lungCancerModel = new ANN(15, new int[] { 8 }, 1, "Lung Cancer Model");
+            lungCancerModel = new ANN(15, defaultInnerLayers, 1, "Lung Cancer Model");
         }
     }
 }
